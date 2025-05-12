@@ -61,6 +61,7 @@ Since this laptop is mostly used at home, FDE (Full Desk Encryption) is essentia
 
 The visual theme follows the Nitro's RGB color scheme - red and black - for a high-contrast look. `Agave Nerd Font` is used system-wide as my font of choice.
 
+<!---
 ## (Planned) Raspberry Pi 5
 
 <img align="right" width="192px" src="./.media/rpi-5.png">
@@ -76,4 +77,8 @@ I'm still undecided on which operating system to run. Options under consideratio
 | **Processor**  | BCM2712 (4 cores) 2.4 GHz |
 | **GPU**        | VideoCore VII (~ 0.05 TFLOPS) |
 | **RAM**        | 8 GB LPDDR4X (2133MHz) |
+--->
 
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute the code as needed. See the [LICENSE](LICENSE) file for more information.
