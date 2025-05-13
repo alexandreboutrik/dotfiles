@@ -4,6 +4,10 @@
 
 ### <img align="left" width="24px" src="../.media/gentoo.svg"> Gentoo Linux
 
+> [!NOTE]
+> Gentoo installation is still in progress.
+> As a result, there is no `install.sh` script available yet.
+
 Run the following command in your terminal:
 
 ```bash
