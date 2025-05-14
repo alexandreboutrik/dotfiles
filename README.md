@@ -15,8 +15,8 @@ I chosed it because of its price, I picked mine up for just R$ 1.5k (around U$ 2
 
 | Component      | Specification |
 |:---------------|:--------------|
-| **Processor**  | i5-8250u (4 cores, 8 threads) 1.6-3.4 GHz |
-| **GPU**        | HD Graphics 620 (~ 0.38 TFLOPS) |
+| **Processor**  | i5-6300u (2 cores, 4 threads) 2.4-3.0 GHz |
+| **GPU**        | HD Graphics 520 (~ 0.38 TFLOPS) |
 | **Display**    | 12.5" FHD 1920x1080 60Hz |
 
 ### Operating System
