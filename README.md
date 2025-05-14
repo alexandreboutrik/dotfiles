@@ -31,7 +31,7 @@ Since I use this laptop in mobile contexts - such as university or travel - FDE 
 
 My desktop environment is built around `hyprland` as the window manager, with `waybar` providing a functional status bar. For screen locking, `waylock`; for launching applications, `fuzzel`; and for terminal, `alacritty`, paired with the default `bash` shell. `Firefox` handles daily web browsing, and `lazyvim` - a neovim distribution - serves as my text editor.
 
-The visual theme follows hyprland's default palette - mainly blue and black - for a clean, cohesive look. My preferred font is `Agave Nerd Font`, which complements the overall aesthetic.
+The visual theme follows hyprland's default palette - mainly blue and black - for a clean, cohesive look. My preferred font is `Agave Nerd Font`, which complements the overall aesthetic. System-wide, I use `systemd-boot` as the bootloader, `glibc` as the libc and `btrfs` as the filesystem.
 
 ## Acer Nitro 5 AN515-58-58W3
 
@@ -59,7 +59,7 @@ Since this laptop is mostly used at home, FDE (Full Desk Encryption) is essentia
 
 `i3wm` as the window manager, `polybar` as the status bar, `xsecurelock` for screen locking, `dmenu` for application launching and `alacritty` serves as my terminal with the default `bash` shell. For daily browsing, I rely on `firefox`, while my coding is handled by `lazyvim` (neovim distribution). Btw I'm using `openrc` instead of `systemd`.
 
-The visual theme follows the Nitro's RGB color scheme - red and black - for a high-contrast look. `Agave Nerd Font` is used system-wide as my font of choice.
+The visual theme follows the Nitro's RGB color scheme - red and black - for a high-contrast look. `Agave Nerd Font` is used system-wide as my font of choice. System-wide, I use `grub` as the bootloader, `glibc` as the libc and `btrfs` as the filesystem.
 
 <!---
 ## (Planned) Raspberry Pi 5
