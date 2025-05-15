@@ -3,15 +3,15 @@
 Welcome to my personal `dotfiles` repository.  
 This repo contains the configuration files and environment setup for all my machines. Each setup is carefully tuned to match its use case.
 
-## Lenovo ThinkPad X270
+## Lenovo ThinkPad X270 & T480
 
 <img align="right" width="192px" src="./.media/leno-tp-x270.png">
 
-This machine is my primary workstation for everyday tasks, including most programming, writing and general productivity.
+These two machines are my daily drivers, used for general productivity, programming and writing. Both run similar environments.
 
-I chosed it because of its price, I picked mine up for just R$ 1.5k (around U$ 260), which was a great deal. One of its standout features is the dual battery system (internal and external), which provides impressive battery life and allows me to hot-swap batteries without shutting the system down. It also supports USB-C charging, so in a pinch, I can charge it with a regular phone charger. It's also lightweight, making it ideal for mobile work.
+One of their best features in my opinion is the dual battery system (internal and external), which provides impressive battery life and allows me to hot-swap batteries without shutting the system down. They also support USB-C charging, so in a pinch, I can charge them with a regular phone charger.
 
-### Hardware
+### X270 Hardware
 
 | Component      | Specification |
 |:---------------|:--------------|
@@ -19,13 +19,21 @@ I chosed it because of its price, I picked mine up for just R$ 1.5k (around U$ 2
 | **GPU**        | HD Graphics 520 (~ 0.38 TFLOPS) |
 | **Display**    | 12.5" FHD 1920x1080 60Hz |
 
+### T480 Hardware
+
+| Component      | Specification |
+|:---------------|:--------------|
+| **Processor**  | i5-8350u (4 cores, 8 threads) 1.7-3.6 GHz |
+| **GPU**        | UHD Graphics 620 (~ 0.44 TFLOPS) |
+| **Display**    | 14" FHD 1920x1080 60Hz |
+
 ### Operating System
 
-I run `NixOS` <img width="16px" src="./.media/nix.png">, customized with a strong emphasis on security and privacy. The configuration is declarative, minimal, and tailored for my personal workflow.
+Both run `NixOS` <img width="16px" src="./.media/nix.png">, customized with a strong emphasis on security and privacy. The configuration is declarative, minimal, and tailored for my personal workflow.
 
 #### Encryption
 
-Since I use this laptop in mobile contexts - such as university or travel - FDE (Full Disk Encryption) is essential to protect sensitive data in case of theft. While I'm also interest in plausible deniability, I haven't implemented it yet. Therefore, the SSD is encrypted using `LUKS2` with `AES-XTS` (chosen over Serpent for AES-NI hardware optimization), `Whirlpool` for hashing, and `Argon2(id)` as the KDF (Key Derivation Function).
+Since I use them in mobile contexts - such as university or travel - FDE (Full Disk Encryption) is essential to protect sensitive data in case of theft. While I'm also interested in plausible deniability, I have not implemented it yet. Therefore, the SSDs are encrypted using `LUKS2` with `AES-XTS` (chosen over Serpent for AES-NI hardware optimization), `Whirlpool` for hashing, and `Argon2(id)` as the KDF (Key Derivation Function).
 
 #### Environment
 
