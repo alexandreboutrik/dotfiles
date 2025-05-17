@@ -53,7 +53,11 @@ The Nitro is my more powerful machine, primarily used for gaming and resource-in
 |:---------------|:--------------|
 | **Processor**  | i5-12450H (8 cores, 12 threads) 2.0-4.4 GHz |
 | **GPU**        | RTX 3050 Mobile (~ 4.33 TFLOPS) |
+| **Memory**     | 8+8 GiB DDR4 3200 MHz |
+| **Disk I**     | SSTC CL1-4D256 [w=7.8 GiB/s r=10.6 GiB/s] |
+| **Disk II**    | Micron 3400 MTFDKBA512TFH [w=1.9 GiB/s r=4.3 GiB/s] |
 | **Display**    | 15.6" FHD 1920x1080 144Hz |
+| **Battery**    | SMP AP18E7M 58.8 Wh 74.0% (43.5 Wh) |
 
 ### Operating System
 
