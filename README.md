@@ -25,7 +25,10 @@ One of their best features in my opinion is the dual battery system (internal an
 |:---------------|:--------------|
 | **Processor**  | i5-8350u (4 cores, 8 threads) 1.7-3.6 GHz |
 | **GPU**        | UHD Graphics 620 (~ 0.44 TFLOPS) |
+| **Memory**     | 8 GiB DDR4 2400 MHz |
+| **Disk**       | Liteon CV8-CE128 [w=8.6 GiB/s r=7.7 GiB/s]
 | **Display**    | 14" FHD 1920x1080 60Hz |
+| **Battery**    | SANYO 01AV419 24 Wh 68.1% (16.4 Wh) |
 
 ### Operating System
 
