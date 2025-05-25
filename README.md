@@ -7,9 +7,7 @@ This repo contains the configuration files and environment setup for all my mach
 
 <img align="right" width="192px" src="./.media/leno-tp-x270.png">
 
-These two machines are my daily drivers, used for general productivity, programming and writing. Both run similar environments.
-
-One of their best features in my opinion is the dual battery system (internal and external), which provides impressive battery life and allows me to hot-swap batteries without shutting the system down. They also support USB-C charging, so in a pinch, I can charge them with a regular phone charger.
+These two machines are my daily drivers, used for general productivity, programming and writing. Both feature dual battery system (hot-swappable) and USB-C charging capabilities.
 
 ### X270 Hardware
 
@@ -36,13 +34,19 @@ Both run `NixOS` <img width="16px" src="./.media/nix.png">, customized with a st
 
 #### Encryption
 
-Since I use them in mobile contexts - such as university or travel - FDE (Full Disk Encryption) is essential to protect sensitive data in case of theft. While I'm also interested in plausible deniability, I have not implemented it yet. Therefore, the SSDs are encrypted using `LUKS2` with `AES-XTS` (chosen over Serpent for AES-NI hardware optimization), `Whirlpool` for hashing, and `Argon2(id)` as the KDF (Key Derivation Function).
+For mobile use (e.g., university or travel), FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `whirlpool` for hashing, and `argon2(id)` as the KDF. Plausible deniability is under consideration but not yet implemented.
 
 #### Environment
 
-My desktop environment is built around `hyprland` as the window manager, with `waybar` providing a functional status bar. For screen locking and display manager, `lightdm`; for launching applications, `rofi`; and for terminal, `alacritty`, paired with the default `bash` shell. `Firefox` handles daily web browsing, and `lazyvim` - a neovim distribution - serves as my text editor.
-
-The visual theme follows hyprland's default palette - mainly blue and black - for a clean, cohesive look. My preferred font is `Agave Nerd Font`, which complements the overall aesthetic. System-wide, I use `systemd-boot` as the bootloader, `glibc` as the libc and `ext4` as the filesystem.
+- **Bootloader**: `systemd-boot`
+- **Libc/toolchain**: `glibc`, `gcc`, `llvm/clang`
+- **Filesystem**: `ext4`
+- **Window manager**: `hyprland`
+- **Status bar**: `waybar`
+- **Display manager**: `lightdm`
+- **Application launcher**: `rofi`
+- **Terminal**: `alacritty` with `bash`
+- **Browser**: `firefox`
 
 ## Acer Nitro 5 AN515-58-58W3
 
@@ -68,13 +72,20 @@ I run a custom `Gentoo` <img width="16px" src="./.media/gentoo.svg"> setup, cust
 
 #### Encryption
 
-Since this laptop is mostly used at home, FDE (Full Desk Encryption) is essential to prevent unauthorized access when I'm away or leave it unattended. The lock screen also plays a crucial role, as there are times when I leave the system powered on but locked. Therefore, the SSD is encrypted using `LUKS2` with `AES-XTS` (chosen over Serpent for AES-NI hardware optimization), `SHA-256` for hashing, and `PBKDF2` as the KDF (Key Derivation Function).
+FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `SHA-512` for hashing, and `PBKDF2` as the KDF.
 
 #### Environment
 
-`i3wm` as the window manager, `polybar` as the status bar, `xsecurelock` for screen locking, `dmenu` for application launching and `alacritty` serves as my terminal with the default `bash` shell. For daily browsing, I rely on `firefox`, while my coding is handled by `lazyvim` (neovim distribution). Btw I'm using `openrc` instead of `systemd`.
-
-The visual theme follows the Nitro's RGB color scheme - red and black - for a high-contrast look. `Agave Nerd Font` is used system-wide as my font of choice. System-wide, I use `grub` as the bootloader, `glibc` as the libc and `btrfs` as the filesystem.
+- **Bootloader**: `grub`, EFI
+- **Init system**: `openrc`
+- **Libc/toolchain**: `glibc`, `gcc`, `llvm/clang`
+- **Filesystem**: `btrfs`
+- **Window manager**: `i3wm`
+- **Status bar**: `polybar`
+- **Screen lock**: `xsecurelock`
+- **Application launcher**: `dmenu`
+- **Terminal**: `alacritty` with `bash`
+- **Browser**: `firefox`
 
 <!---
 ## (Planned) Raspberry Pi 5
