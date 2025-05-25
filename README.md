@@ -40,9 +40,9 @@ Since I use them in mobile contexts - such as university or travel - FDE (Full D
 
 #### Environment
 
-My desktop environment is built around `hyprland` as the window manager, with `waybar` providing a functional status bar. For screen locking, `waylock`; for launching applications, `fuzzel`; and for terminal, `alacritty`, paired with the default `bash` shell. `Firefox` handles daily web browsing, and `lazyvim` - a neovim distribution - serves as my text editor.
+My desktop environment is built around `hyprland` as the window manager, with `waybar` providing a functional status bar. For screen locking and display manager, `lightdm`; for launching applications, `rofi`; and for terminal, `alacritty`, paired with the default `bash` shell. `Firefox` handles daily web browsing, and `lazyvim` - a neovim distribution - serves as my text editor.
 
-The visual theme follows hyprland's default palette - mainly blue and black - for a clean, cohesive look. My preferred font is `Agave Nerd Font`, which complements the overall aesthetic. System-wide, I use `systemd-boot` as the bootloader, `glibc` as the libc and `btrfs` as the filesystem.
+The visual theme follows hyprland's default palette - mainly blue and black - for a clean, cohesive look. My preferred font is `Agave Nerd Font`, which complements the overall aesthetic. System-wide, I use `systemd-boot` as the bootloader, `glibc` as the libc and `ext4` as the filesystem.
 
 ## Acer Nitro 5 AN515-58-58W3
 
