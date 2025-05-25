@@ -42,6 +42,7 @@
     #"kernel.perf_event_paranoid" = 3;
 
     # File System
+    "fs.suid.dumpable" = 0;
     "fs.protected_hardlinks" = 1;
     "fs.protected_symlinks" = 1;
     "fs.protected_fifos" = 2;
@@ -55,6 +56,10 @@
     # Prevents merging similar memory slabs.
     # Hardens against heap attacks.
     "slab_nomerge"
+    # Frees memory with a poison value (0xAA).
+    # Catches Use-after-Free (UaF) early.
+    # CONFIG_PAGE_POISONING takes precedence over init_on_alloc and init_on_free.
+    #"page_poison=1"
     # Zero-fills memory when allocated.
     # Defeats Use-after-Free (UaF) leaks.
     "init_on_alloc=1"
@@ -64,9 +69,6 @@
     # Randomizes page allocation.
     # Mitigates memory layout guessing.
     "page_alloc.shuffle=1"
-    # Frees memory with a poison value (0xAA).
-    # Catches Use-after-Free (UaF) early.
-    "page_poison=1"
 
     # Enables Page Table Isolation (PTI).
     # Mitigates Meltdown.
