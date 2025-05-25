@@ -10,6 +10,7 @@
       ./hardware-configuration.nix # hardware scan.
       ./security.nix # security module.
       ./iptables.nix # netfilter.
+      ./systemd.nix # systemd services hardening.
       ./home-manager/main.nix # home dotfiles.
     ];
 
