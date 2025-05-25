@@ -11,6 +11,7 @@
       ./security.nix # security module.
       ./iptables.nix # netfilter.
       ./systemd.nix # systemd services hardening.
+      ./firefox.nix # firefox policies.json/user.js.
       ./home-manager/main.nix # home dotfiles.
     ];
 
