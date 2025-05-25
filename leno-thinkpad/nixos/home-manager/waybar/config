@@ -33,7 +33,9 @@
   "modules-right": [
     "temperature", "cpu", "memory", "disk",
     "custom/separator#blank",
-    "backlight", "battery",
+    "backlight",
+    "custom/separator#blank",
+    "battery",
     "custom/separator#blank",
     "pulseaudio",
     "custom/separator#blank",

@@ -23,7 +23,7 @@
     "rotate": 0,
     "format-icons": [ " ", " ", " ", "󰃝 ", "󰃞 ", "󰃟 ", "󰃠 " ],
     "format": "{icon}",
-    "tooltip-format": "backlight {percent}%",
+    "tooltip-format": "Backlight {percent}%",
     "icon-size": 10, /* add on-click here */
     "on-click": "brightnessctl set 100%",
     "on-click-right": "brightnessctl set 50%",
@@ -134,8 +134,9 @@
   "custom/power": {
     "format": " ⏻ ",
     "on-click": "shutdown -h now",
+    "on-click-right": "reboot",
     "tooltip": true,
-    "tooltip-format": "Click; Shutdown"
+    "tooltip-format": "Shutdown; Reboot"
   },
 
   "custom/separator#blank": {
