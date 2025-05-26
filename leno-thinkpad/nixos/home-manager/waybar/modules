@@ -126,9 +126,9 @@
   "custom/menu": {
     "format": "  ",
     //"format": "  ",
-    "on-click": "pkill rofi || rofi -show drun -modi run,drun,filebrowser,window",
+    "on-click": "pkill wofi || ~/.config/wofi/wofi.sh",
     "tooltip": true,
-    "tooltip-format": "Rofi Menu"
+    "tooltip-format": "Wofi Menu"
   },
 
   "custom/power": {

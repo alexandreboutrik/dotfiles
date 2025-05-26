@@ -22,6 +22,12 @@ in
         source = "${home-nix}/waybar";
         recursive = true; force = true;
        };
+
+      /* Wofi */
+      ".config/wofi" = {
+        source = "${home-nix}/wofi";
+        recursive = true; force = true;
+      };
     };
   };
 }

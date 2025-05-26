@@ -44,7 +44,7 @@ For mobile use (e.g., university or travel), FDE is implemented using `LUKS2` wi
 - **Window manager**: `hyprland`
 - **Status bar**: `waybar`
 - **Display manager**: `lightdm`
-- **Application launcher**: `rofi`
+- **Application launcher**: `wofi`
 - **Terminal**: `alacritty` with `bash`
 - **Browser**: `firefox`
 

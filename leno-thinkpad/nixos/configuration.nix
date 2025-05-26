@@ -104,7 +104,7 @@
         tree
         alacritty
         waybar
-        waylock
+        wofi
         fuzzel
         wl-clipboard
         neofetch
