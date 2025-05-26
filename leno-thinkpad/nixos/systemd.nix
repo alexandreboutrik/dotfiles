@@ -12,6 +12,7 @@
       PrivateTmp = true;
       NoNewPrivileges = true;
       IPAddressDeny = "any";
+      Umask = "0077";
     };
   };
 
@@ -31,6 +32,7 @@
       NoNewPrivileges = true;
       RestrictSUIDSGID = true;
       RestructNamespaces = true;
+      Umask = "0077";
     };
   };
 
@@ -48,6 +50,7 @@
       ProtectProc = "invisible";
       ProcSubset = "pid";
       RestrictNamespaces = true;
+      Umask = "0077";
     };
   };
 }
