@@ -43,6 +43,20 @@
   networking.hostName = "t480";
   networking.networkmanager.enable = true;
 
+  # Disable bluetooth.
+  #boot.kernelModules = [ "btusb" ];
+  hardware.bluetooth = {
+    enable = false;
+  #  powerOnBoot = false;
+  #  settings = {
+  #    General = {
+  #      Enable = "Source,Sink,Media,Socket"; # A2DP
+  #      ControllerMode = "bredr";
+  #    };
+  #  };
+  };
+  #services.blueman.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
@@ -51,7 +65,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "pt_BR.UTF-8";
+  i18n = {
+    defaultLocale = "pt_BR.UTF-8";
+    supportedLocales = [ "pt_BR.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+  };
   console = {
     keyMap = lib.mkForce "br-abnt2";
     useXkbConfig = true;
@@ -113,10 +130,14 @@
         pinentry
         pinentry-curses
         telegram-desktop
-        libreoffice
+        libreoffice-fresh
         hyprpaper
         brightnessctl
         alsa-utils
+        grim
+        slurp
+        ranger
+        ueberzug
       ];
     };
   };
@@ -135,7 +156,17 @@
     neovim
     wget
     iptables
+    pulseaudio
+    adwaita-icon-theme
+    gtk3
   ];
+
+  # Enable dark theme for GTK applications.
+  environment.variables = {
+    GTK_THEME = "Adwaita-dark";
+    LIBREOFFICE_LANG = "en.US_UTF-8";
+  };
+  programs.dconf.enable = true;
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
