@@ -92,7 +92,7 @@
 
   "network": {
     "format": "{ifname}",
-    "format-wifi": "{icon}",
+    "format-wifi": "{icon} ",
     "format-ethernet": "󰌘",
     "format-disconnected": "󰌙",
     "tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
@@ -101,6 +101,14 @@
     "tooltip-format-disconnected": "󰌙 N/a",
     "max-length": 20,
     "format-icons": [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨" ]
+  },
+
+  "bluetooth": {
+    "format": " ",
+    "format-off": "󰂳 ",
+    "format-connected": " {num_connections}",
+    "tooltip": true,
+    "tooltip-format": " {device_battery_percentage}%"
   },
 
   "pulseaudio": {

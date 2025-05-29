@@ -34,6 +34,7 @@
     "temperature", "cpu", "memory", "disk",
     "custom/separator#blank",
     "backlight",
+    "network",
     "custom/separator#blank",
     "battery",
     "custom/separator#blank",
