@@ -142,6 +142,15 @@
     };
   };
 
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
+
   # GnuPG
   programs.mtr.enable = true;  
   programs.gnupg.agent = {
@@ -151,7 +160,7 @@
 
   # System-wide packages.
   environment.systemPackages = with pkgs; [
-    vim
+    (import ./vim.nix)
     git
     neovim
     wget
