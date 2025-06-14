@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;    
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
   home-nix = "/etc/nixos/home-manager";
   home-scripts = "/etc/nixos/home-manager/scripts";
 in
@@ -9,7 +9,7 @@ in
   imports = [ (import "${home-manager}/nixos") ];
 
   home-manager.users.boutrik = { pkgs, ... }: {
-    home.stateVersion = "24.11";
+    home.stateVersion = "25.05";
 
     home.file = {
       /* Hyprland */
