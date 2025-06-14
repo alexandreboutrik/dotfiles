@@ -3,6 +3,7 @@
 let
   home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz;    
   home-nix = "/etc/nixos/home-manager";
+  home-scripts = "/etc/nixos/home-manager/scripts";
 in
 {
   imports = [ (import "${home-manager}/nixos") ];
@@ -27,6 +28,16 @@ in
       ".config/wofi" = {
         source = "${home-nix}/wofi";
         recursive = true; force = true;
+      };
+      
+      /* Scripts */
+      ".bin" = {
+        source = "${home-scripts}";
+        recursive = true; force = true;
+      };
+      ".bashrc" = {
+        source = "${home-nix}/bashrc";
+        force = true;
       };
     };
   };

@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+function print_help() {
+    echo "USAGE:"
+    echo "  dshell [OPTIONS] [DEV-SHELL]"
+    echo
+    echo "OPTIONS:"
+    echo "  -help, -h       Display this help message and exit."
+    echo "  -list, -l       List all available development shells."
+    echo
+    echo "EXAMPLES:"
+    echo "  $ dshell c-raylib"
+
+    exit
+}
+
+function list_shells() {
+    ls -1 /etc/nixos/dev-shells
+}
+
+function copy_shell() {
+    cp -v /etc/nixos/dev-shells/${1} ./shell.nix
+    echo "Starting nix-shell..."
+    nix-shell
+}
+
+if [ ! -d "/etc/nixos/dev-shells" ]; then
+    echo " ERROR: dev-shells not found. Exiting." ; exit 1
+fi
+
+if [ $# -eq 0 ] ; then
+    print_help
+fi
+
+while [ $# -ne 0 ] ; do
+    case "${1}" in
+    "-help") ;& "help") ;& "-h") ;& "h")
+        print_help
+    ;;
+    "-list") ;& "list") ;& "-l") ;& "l")
+        list_shells
+    ;;
+    *)
+        if [ ! -e "/etc/nixos/dev-shells/${1}" ] ; then
+            echo " Invalid dev-shell: ${1}. Not found. Exiting."
+            exit 1
+        fi
+
+        copy_shell ${1}
+    ;;
+    esac
+
+    shift
+done
