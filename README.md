@@ -3,21 +3,13 @@
 Welcome to my personal `dotfiles` repository.  
 This repo contains the configuration files and environment setup for all my machines. Each setup is carefully tuned to match its use case.
 
-## Lenovo ThinkPad X270 & T480
+## Lenovo ThinkPad T480
 
 <img align="right" width="192px" src="./.media/leno-tp-x270.png">
 
-These two machines are my daily drivers, used for general productivity, programming and writing. Both feature dual battery system (hot-swappable) and USB-C charging capabilities.
+This machine is my daily driver, used for general productivity, programming, browsing and writing. It features a dual battery system (therefore hot-swappable) and USB-C charging.
 
-### X270 Hardware
-
-| Component      | Specification |
-|:---------------|:--------------|
-| **Processor**  | i5-6300u (2 cores, 4 threads) 2.4-3.0 GHz |
-| **GPU**        | HD Graphics 520 (~ 0.38 TFLOPS) |
-| **Display**    | 12.5" FHD 1920x1080 60Hz |
-
-### T480 Hardware
+### Hardware
 
 | Component      | Specification |
 |:---------------|:--------------|
@@ -30,11 +22,9 @@ These two machines are my daily drivers, used for general productivity, programm
 
 ### Operating System
 
-Both run `NixOS` <img width="16px" src="./.media/nix.png">, customized with a strong emphasis on security and privacy. The configuration is declarative, minimal, and tailored for my personal workflow.
+It runs `NixOS` <img width="16px" src="./.media/nix.png">, customized with a strong emphasis on security and privacy. The configuration is declarative, minimal, and tailored for my personal workflow.
 
-#### Encryption
-
-For mobile use (e.g., university or travel), FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `whirlpool` for hashing, and `argon2(id)` as the KDF. Plausible deniability is under consideration but not yet implemented.
+For encryption, because it has a mobile usage (e.g., university or travel), FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `whirlpool` for hashing, and `argon2(id)` as the KDF. Plausible deniability is under consideration but not yet implemented.
 
 #### Environment
 
@@ -47,12 +37,13 @@ For mobile use (e.g., university or travel), FDE is implemented using `LUKS2` wi
 - **Application launcher**: `wofi`
 - **Terminal**: `alacritty` with `bash`
 - **Browser**: `firefox`
+- **Editor**: `neovim`, `texstudio`
 
 ## Acer Nitro 5 AN515-58-58W3
 
 <img align="right" width="192px" src="./.media/acer-nitro-5.png">
 
-The Nitro is my more powerful machine, primarily used for gaming and resource-intensive development such, as Android Studio and other demanding environments.
+The Nitro is the most powerful machine I own (for now), primarily used for gaming and resource-intensive development such as Android Studio, heavy compilation and other demanding environments.
 
 ### Hardware
 
@@ -70,10 +61,6 @@ The Nitro is my more powerful machine, primarily used for gaming and resource-in
 
 I run a custom `Gentoo` <img width="16px" src="./.media/gentoo.svg"> setup, customized for performance. It also dual-boots with `Windows` <img width="16px" src="./.media/windows.png">, which I use for gaming and sofwares that are Windows-only.
 
-#### Encryption
-
-FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `SHA-512` for hashing, and `PBKDF2` as the KDF.
-
 #### Environment
 
 - **Bootloader**: `grub`, EFI
@@ -87,23 +74,22 @@ FDE is implemented using `LUKS2` with `AES-XTS` (AES-NI), `SHA-512` for hashing,
 - **Terminal**: `alacritty` with `bash`
 - **Browser**: `firefox`
 
-<!---
-## (Planned) Raspberry Pi 5
+## Lenovo ThinkCentre M700 Tiny
 
-<img align="right" width="192px" src="./.media/rpi-5.png">
+<img align="right" width="192px" src="./.media/thinkcentre.png">
 
-The Rpi is a future addition to my setup, intended to be used as an home server.
-
-I'm still undecided on which operating system to run. Options under consideration include: `OpenBSD`, `Ubuntu Server` and `NixOS`. Once the setup is finalized, it's dotfiles and configuration will be added to this repository under a dedicated `rpi-5` directory.
+I'm planning on configuring this machine as my homeserver.
 
 ### Hardware
 
 | Component      | Specification |
 |:---------------|:--------------|
-| **Processor**  | BCM2712 (4 cores) 2.4 GHz |
-| **GPU**        | VideoCore VII (~ 0.05 TFLOPS) |
-| **RAM**        | 8 GB LPDDR4X (2133MHz) |
---->
+| **Processor**  | i5-6400T |
+| **Memory**     | 8 GiB |
+
+### Operating System & Environment
+
+I'm still undecided on which operating system to run. I'm considering running OpenBSD and developping a VMM "manager" for all my services.
 
 ## License
 
