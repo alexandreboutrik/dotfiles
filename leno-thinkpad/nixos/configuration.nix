@@ -40,7 +40,7 @@
   ];
 
   # Basic networking configuration.
-  networking.hostName = "t480";
+  networking.hostName = "thinkpad";
   networking.networkmanager.enable = true;
 
   # Disable bluetooth.
@@ -58,7 +58,7 @@
   #services.blueman.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Sao_Paulo";
+  time.timeZone = "Europe/Paris";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -66,8 +66,8 @@
 
   # Select internationalisation properties.
   i18n = {
-    defaultLocale = "pt_BR.UTF-8";
-    supportedLocales = [ "pt_BR.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" ];
+    defaultLocale = "en_US.UTF-8";
+    extraLocales = [ "pt_BR.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
   };
   console = {
     keyMap = lib.mkForce "br-abnt2";
@@ -118,26 +118,29 @@
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "audio" "input" ];
       packages = with pkgs; [
-        tree
-        alacritty
-        waybar
-        wofi
-        fuzzel
-        wl-clipboard
-        neofetch
-        firefox-wayland
-        gnupg
-        pinentry
-        pinentry-curses
-        telegram-desktop
-        libreoffice-fresh
-        hyprpaper
-        brightnessctl
-        alsa-utils
-        grim
-        slurp
-        ranger
-        ueberzug
+		# Commands & Utils
+		tree grim slurp neofetch ueberzug unzip
+		gnupg pinentry pinentry-curses
+
+		# System & Interface
+		waybar wofi fuzzel wl-clipboard hyprpaper brightnessctl alsa-utils
+
+		# Desktop apps
+		alacritty firefox-wayland telegram-desktop libreoffice-fresh
+
+		# TexStudio
+		texstudio texlive.combined.scheme-full
+
+		# Development
+		gcc clang clang-tools man-pages
+		go gopls
+		cargo rust-analyzer
+		python3 pyright
+		jdk jdt-language-server
+		nodejs_24 yarn typescript typescript-language-server vue-language-server
+		ghc haskell-language-server
+		bash-language-server
+		positron-bin rstudio R rPackages.httr rPackages.ggplot2
       ];
     };
   };
@@ -161,8 +164,8 @@
   # System-wide packages.
   environment.systemPackages = with pkgs; [
     (import ./vim.nix)
+	neovim
     git
-    neovim
     wget
     iptables
     pulseaudio

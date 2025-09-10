@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # TODO: support for the X270.
-# hardware-configuration.nix and networking.hostName should be changed.
+# hardware-configuration.nix should be changed.
 
 if [ ! -d "./nixos" ] ; then
   echo "ERROR: No ./nixos directory found."
