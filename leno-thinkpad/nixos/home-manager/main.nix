@@ -35,6 +35,13 @@ in
         source = "${home-scripts}";
         recursive = true; force = true;
       };
+
+      /* Neovim */
+      ".config/nvim" = {
+        source = "${home-nix}/nvim";
+        recursive = true; force = true;
+      };
+
       ".bashrc" = {
         source = "${home-nix}/bashrc";
         force = true;
