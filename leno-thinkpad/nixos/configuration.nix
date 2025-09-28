@@ -119,8 +119,10 @@
       extraGroups = [ "wheel" "networkmanager" "audio" "input" ];
       packages = with pkgs; [
 		# Commands & Utils
-		tree grim slurp neofetch ueberzug unzip
+		tree grim slurp neofetch ueberzug unzip sloc
 		gnupg pinentry pinentry-curses
+		imagemagick mupdf qpdf
+		hyperfine
 
 		# System & Interface
 		waybar wofi fuzzel wl-clipboard hyprpaper brightnessctl alsa-utils
@@ -132,15 +134,24 @@
 		texstudio texlive.combined.scheme-full
 
 		# Development
-		gcc clang clang-tools man-pages
-		go gopls
-		cargo rust-analyzer
-		python3 pyright
+		glibc.static gcc clang clang-tools man-pages
 		jdk jdt-language-server
-		nodejs_24 yarn typescript typescript-language-server vue-language-server
-		ghc haskell-language-server
-		bash-language-server
-		positron-bin rstudio R rPackages.httr rPackages.ggplot2
+		alire gprbuild gnat
+		zig zls
+		cargo rust-analyzer rustc
+		go gopls
+		python3 pyright
+		ghc stack haskell-language-server
+		lua ruby
+
+		# JavaScript
+		nodejs_24 yarn typescript
+		typescript-language-server vue-language-server svelte-language-server
+
+		# Needed for University
+		#R rPackages.httr rPackages.ggplot2 quarto
+		#ciscoPacketTracer8
+		#eclipses.eclipse-java positron-bin #rstudio
       ];
     };
   };

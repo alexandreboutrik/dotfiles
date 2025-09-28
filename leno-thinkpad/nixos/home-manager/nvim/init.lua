@@ -21,7 +21,7 @@ vim.opt.expandtab = false       -- Uses spaces instead of tab characters. Essent
 vim.opt.tabstop = 4             -- Defines the visual size of a tab as 4 spaces.
 vim.opt.shiftwidth = 4          -- Defines the amount of spaces to be used for indentation.
 vim.opt.smartindent = true      -- Enables automatic indentation based on code context.
-vim.opt.wrap = false            -- Prevents text lines from wrapping and continuing on the next line.
+vim.opt.wrap = true             -- Prevents text lines from wrapping and continuing on the next line.
 vim.opt.termguicolors = true    -- Enables true colors in the terminal. Essential for modern themes.
 
 -- ====================
@@ -53,6 +53,8 @@ require('lazy').setup({
   'catppuccin/nvim',            -- The Catppuccin color theme.
   'rebelot/kanagawa.nvim',      -- The Kanagawa color theme.
   'nvim-tree/nvim-tree.lua',    -- File tree.
+  'quarto-dev/quarto-nvim',     -- Quarto R.
+  'jmbuhr/otter.nvim',          -- Quarto R dependency.
 })
 
 require('nvim-tree').setup({})
@@ -111,9 +113,10 @@ lspconfig.clangd.setup({
 lspconfig.gopls.setup({ cmd = { 'gopls' } })
 lspconfig.rust_analyzer.setup({ cmd = { 'rust-analyzer' } })
 lspconfig.pyright.setup({ cmd = { 'pyright' } })
-lspconfig.bashls.setup({ cmd = { 'bash-language-server', 'start' } })
-lspconfig.jdtls.setup({ cmd = { 'jdt-language-server' } })
+lspconfig.jdtls.setup({ cmd = { 'jdtls' } })
 lspconfig.hls.setup({ cmd = { 'haskell-language-server-wrapper', '--lsp' } })
+lspconfig.zls.setup({ cmd = { 'zls' } })
+--lspconfig.bashls.setup({ cmd = { 'bash-language-server', 'start' } })
 --lspconfig.volar.setup({ cmd = { 'vue-language-server', '--stdio' } })
 
 -- Configures nvim-cmp for autocompletion.
@@ -171,3 +174,30 @@ vim.diagnostic.config({
   -- Updates diagnostics while you are in insert mode.
   update_in_insert = false,
 })
+
+-- ====================
+-- Quarto Configuration
+-- ====================
+require('quarto').setup{
+  debug = false,
+  closePreviewOnExit = true,
+  lspFeatures = {
+    enabled = true,
+    chunks = "curly",
+    languages = { "r", "python", "bash", "html" },
+    diagnostics = {
+      enabled = true,
+      triggers = { "BufWritePost" },
+    },
+    completion = {
+      enabled = true,
+    },
+  },
+  codeRunner = {
+    enabled = true,
+    default_method = "slime", -- "molten", "slime", "iron" or <function>
+    ft_runners = {}, -- filetype to runner, ie. `{ python = "molten" }`.
+    -- Takes precedence over `default_method`
+    never_run = { 'yaml' }, -- filetypes which are never sent to a code runner
+  },
+}
