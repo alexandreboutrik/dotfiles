@@ -86,38 +86,39 @@ vim.cmd.colorscheme 'kanagawa'
 -- LSP and Autocompletion Configuration
 -- ====================
 -- Imports the necessary modules.
-local lspconfig = require('lspconfig')
 local cmp = require('cmp')
 
--- LSP configuration for each language.
--- Since I'm using Nixpkgs, the LSP server binaries are in your PATH.
-lspconfig.clangd.setup({
-  cmd = { 'clangd' },
-  -- Fallback flags for clangd to work in .c files without a JSON file.
-  fallbackFlags = {
-    '-std=c23',
-	'-W',
-    '-Wall',
-	'-Wextra',
-	'-Wformat=2',
-    '--query-driver=' .. vim.fn.executable('clang'),
-    '-resource-dir=' .. vim.fn.executable('clang') .. '/../lib/clang/<version>'
+local lsps = {
+  {
+    "clangd", {
+      init_options = {
+        fallbackFlags = {
+          '-std=c23', '-W', '-Wall', '-Wextra', '-Wformat=2',
+          '--query-driver=' .. vim.fn.executable('clang'),
+          '-resource-dir=' .. vim.fn.executable('clang') .. '/../lib/clang/<version>'
+        },
+        on_attach = function(_, bufnr)
+          vim.diagnostics.show(bufnr)
+        end,
+      },
+    }
   },
-  -- The `on_attach` function is called when the LSP is attached to a buffer.
-  on_attach = function(_, bufnr)
-    vim.diagnostic.show(bufnr)
-  end,
-})
+  { "gopls" }, { "rust-analyzer" }, { "zls" },
+  { "jdtls" }, { "pyright" },
+  {
+    "haskell", {
+      cmd = { "haskell-language-server-wrapper", "--lsp" },
+    }
+  },
+}
 
--- Configures the other LSP servers.
-lspconfig.gopls.setup({ cmd = { 'gopls' } })
-lspconfig.rust_analyzer.setup({ cmd = { 'rust-analyzer' } })
-lspconfig.pyright.setup({ cmd = { 'pyright' } })
-lspconfig.jdtls.setup({ cmd = { 'jdtls' } })
-lspconfig.hls.setup({ cmd = { 'haskell-language-server-wrapper', '--lsp' } })
-lspconfig.zls.setup({ cmd = { 'zls' } })
---lspconfig.bashls.setup({ cmd = { 'bash-language-server', 'start' } })
---lspconfig.volar.setup({ cmd = { 'vue-language-server', '--stdio' } })
+for _, lsp in pairs(lsps) do
+  local name, config = lsp[1], lsp[2]
+  vim.lsp.enable(name)
+  if config then
+    vim.lsp.config(name, config)
+  end
+end
 
 -- Configures nvim-cmp for autocompletion.
 cmp.setup({
