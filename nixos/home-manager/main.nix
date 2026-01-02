@@ -24,12 +24,6 @@ in
         recursive = true; force = true;
        };
 
-      /* Wofi */
-      ".config/wofi" = {
-        source = "${home-nix}/wofi";
-        recursive = true; force = true;
-      };
-      
       /* Scripts */
       ".bin" = {
         source = "${home-scripts}";

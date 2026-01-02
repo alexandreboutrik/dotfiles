@@ -89,20 +89,7 @@ vim.cmd.colorscheme 'kanagawa'
 local cmp = require('cmp')
 
 local lsps = {
-  {
-    "clangd", {
-      init_options = {
-        fallbackFlags = {
-          '-std=c23', '-W', '-Wall', '-Wextra', '-Wformat=2',
-          '--query-driver=' .. vim.fn.executable('clang'),
-          '-resource-dir=' .. vim.fn.executable('clang') .. '/../lib/clang/<version>'
-        },
-        on_attach = function(_, bufnr)
-          vim.diagnostics.show(bufnr)
-        end,
-      },
-    }
-  },
+  { "clangd" },
   { "gopls" }, { "rust-analyzer" }, { "zls" },
   { "jdtls" }, { "pyright" },
   {

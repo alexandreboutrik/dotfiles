@@ -20,7 +20,7 @@
   boot.initrd = {
     luks.devices = {
       luksCrypted = {
-        device = "/dev/disk/by-uuid/2f8b538b-575f-4afd-a325-6c7071e483fe";
+        device = "/dev/disk/by-label/nix-encrypted";
         preLVM = true; # unlock before activating LVM.
         allowDiscards = true;
       };
@@ -116,45 +116,62 @@
   users.users = {
     boutrik = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "audio" "input" ];
+      extraGroups = [ "wheel" "networkmanager" "audio" "input" "ollama" ];
       packages = with pkgs; [
-		# Commands & Utils
-		tree grim slurp neofetch ueberzug unzip sloc
-		gnupg pinentry pinentry-curses
-		imagemagick mupdf qpdf
-		hyperfine
+        # Commands & Utils
+        tree grim slurp neofetch ueberzug unzip sloc p7zip zip
+        gnupg pinentry pinentry-curses bc
+        imagemagick mupdf qpdf feh
+        hyperfine
+        dig nmap killall
 
-		# System & Interface
-		waybar wofi fuzzel wl-clipboard hyprpaper brightnessctl alsa-utils
+        # System & Interface
+        waybar wofi fuzzel wl-clipboard hyprpaper brightnessctl alsa-utils
 
-		# Desktop apps
-		alacritty firefox-wayland telegram-desktop libreoffice-fresh
+        # Desktop apps
+        alacritty firefox-wayland telegram-desktop libreoffice-fresh
 
-		# TexStudio
-		texstudio texlive.combined.scheme-full
+        # TexStudio
+        texstudio texlive.combined.scheme-full
 
-		# Development
-		glibc.static gcc clang clang-tools man-pages
-		jdk jdt-language-server
-		alire gprbuild gnat
-		zig zls
-		cargo rust-analyzer rustc
-		go gopls
-		python3 pyright
-		ghc stack haskell-language-server
-		lua ruby
+        # Development
+        glibc.static gcc clang clang-tools man-pages
+        jdk jdt-language-server maven scala
+        gnat
+        zig zls
+        cargo rust-analyzer rustc
+        go gopls
+        python3 pyright
+        ghc stack haskell-language-server
+        lua
+        marktext
 
-		# JavaScript
-		nodejs_24 yarn typescript
-		typescript-language-server vue-language-server svelte-language-server
+        # JavaScript
+        nodejs_24 yarn typescript
+        typescript-language-server vue-language-server svelte-language-server
 
-		# Needed for University
-		#R rPackages.httr rPackages.ggplot2 quarto
-		#ciscoPacketTracer8
-		#eclipses.eclipse-java positron-bin #rstudio
+        # Needed for University
+        #wireshark
+        #R rPackages.httr rPackages.ggplot2 positron-bin rstudio quarto
+        #ciscoPacketTracer8
+        #eclipses.eclipse-java
+        
+        # AI
+        ollama
       ];
     };
   };
+
+  # Ollama
+  services.ollama = {
+    enable = true;
+    acceleration = false;
+  };
+
+  # Virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "boutrik" ];
 
   # Docker
   virtualisation.docker = {
@@ -175,7 +192,7 @@
   # System-wide packages.
   environment.systemPackages = with pkgs; [
     (import ./vim.nix)
-	neovim
+    neovim
     git
     wget
     iptables
